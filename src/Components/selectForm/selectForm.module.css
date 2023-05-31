@@ -1,0 +1,11 @@
+.selectForm_Wrap{
+    display: flex;
+    flex-direction: column;
+    justify-items: start;
+}
+
+.selectForm_Title{
+    display: flex;
+    justify-content: start;
+    font-size: 8px;
+}

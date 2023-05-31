@@ -8,6 +8,8 @@ class ContainerComponent extends React.Component {
     componentDidMount() {
     }
 
+
+
     postText = (text) => {
         this.props.addPostActionCreator(text);
     }

@@ -5,33 +5,65 @@
 
 .formField {
     display: flex;
-    flex-direction: column;;
-    margin-bottom: 1rem;
+    flex-direction: column;
+    height: 5rem;
+
 }
 
 .formField input {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    font-size: 12px;
+
+    /* W Background */
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 8px;
     width: 100%;
 }
+
+.errorInput input {
+    border: 0.5px solid #EB5757;
+}
+
+.errorMessage {
+    display: flex;
+    justify-content: start;
+    color: #EB5757;
+    font-size: 8px;
+}
+
 
 .formField_Title {
     display: flex;
     justify-content: start;
+    font-size: 8px;
+    font-weight: 400;
 }
 
 .formField_Alt {
+    display: flex;
+    justify-content: start;
+    font-size: 8px;
+    font-weight: 400;
+}
 
+input:hover {
+    border: 0.5px solid #7A5CFA;
 }
 
 .radioButtons_Item {
     display: flex;
     flex-direction: row;
+    margin-bottom: 0.5rem;
 }
 
 .radioButtons_Item input {
     color: #7A5CFA;
+    margin-right: 0.5rem;
 }
-
-
 
 
 .submitButtons_Wrap {
@@ -40,7 +72,8 @@
     justify-content: space-between;
 }
 
-.submitButtons_Wrap button{
+
+.submitButtons_Wrap button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -60,7 +93,7 @@
 
 }
 
-.sumbitButton_item button{
+.sumbitButton_item button {
     background: #7A5CFA;
 }
 
@@ -70,7 +103,11 @@
     position: relative;
     display: inline-block;
     width: 30px;
-    height: 15px;
+    height: 18px;
+    margin-left: 0.2rem;
+    margin-right: 0.5rem;
+
+
 }
 
 /* Hide default HTML checkbox */
@@ -96,24 +133,26 @@
 .slider:before {
     position: absolute;
     content: "";
-    height: 12px;
-    width: 12px;
-    left: 4px;
-    bottom: 1.5px;
-    background-color: white;
+    height: 11px;
+    width: 11px;
+    left: 2px;
+    top: 2px;
+    background: #F4F4F4;
+    border: 1px solid #CCCCCC;
+    border-radius: 32px;
     -webkit-transition: .4s;
     transition: .4s;
 }
 
-input:checked + .slider {
+.isToggle:checked + .slider {
     background-color: #7A5CFA;
 }
 
-input:focus + .slider {
+.isToggle:focus + .slider {
     box-shadow: 0 0 1px #2196F3;
 }
 
-input:checked + .slider:before {
+.isToggle:checked + .slider:before {
     -webkit-transform: translateX(12px);
     -ms-transform: translateX(12px);
     transform: translateX(12px);
@@ -121,9 +160,64 @@ input:checked + .slider:before {
 
 /* Rounded sliders */
 .slider.round {
-    border-radius: 34px;
+    border-radius: 32px;
+    border: 1px solid #CCCCCC;
+    background: #FFFFFF;
 }
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+/**/
+/**/
+/*border-radius: 32px;*/
+
+
+.check__input {
+    position: absolute;
+    left: -99999999px;
+}
+
+.check__label {
+    vertical-align: middle;
+}
+
+.check__label::before {
+    content: '';
+    display: inline-block;
+    width: 1.2em;
+    height: 1.2em;
+    padding-bottom: 0.05em;
+    font-size: 0.7em;
+    border: 1px solid #000;
+    border-radius: 0.2em;
+    vertical-align: middle;
+    margin-right: 0.35em;
+    text-align: center;
+    position: relative;
+    top: -0.2em;
+}
+
+.check__input:checked + .check__label::before {
+    content: '\2714';
+}
+
+.check_error::before {
+    content: '!';
+    display: inline-block;
+    width: 1.3em;
+    height: 1.2em;
+    padding-bottom: 0.05em;
+    font-size: 1em;
+    color: #FFFFFF;
+    background-color: #EB5757;
+    border: 1px solid #EB5757;
+    border-radius: 5em;
+    vertical-align: middle;
+    margin-right: 0.35em;
+    text-align: center;
+    position: relative;
+    top: -3.8em;
+    left: 16.5em;
 }

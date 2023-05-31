@@ -1,5 +1,5 @@
 import React from "react"
-// import s from './UsersSelectFilter.module.css'
+import s from './selectForm.module.css'
 import AsyncSelect from 'react-select/async'
 
 const SelectForm = props => {
@@ -9,8 +9,21 @@ const SelectForm = props => {
         { value: 'Dropdown option 1', label: 'Dropdown option 1' },
         { value: 'Dropdown option 2', label: 'Dropdown option 2' }
     ]
+
     const handleChange = (selectedOption) => {
         props.addOptions(selectedOption);
+    };
+
+    const colourStyles = {
+        control: styles => ({ ...styles, backgroundColor: 'white' }),
+        option: (styles, { data, isDisabled, isFocused, isSelected }) => {
+            return {
+                ...styles,
+                backgroundColor: isFocused ? '#7A5CFA' : 'white' ,
+                color: isFocused ? 'white' : '#666666' ,
+                cursor: isDisabled ? 'not-allowed' : 'default',
+            };
+        },
     };
 
 
@@ -21,9 +34,9 @@ const SelectForm = props => {
         callback(filteredOptions);
     };
     return (
-        <div>
-            <div>Dropdown title</div>
-            <AsyncSelect loadOptions={loadOptions} onChange={handleChange}/>
+        <div className={s.selectForm_Wrap}>
+            <div className={s.selectForm_Title}>Dropdown title</div>
+            <AsyncSelect  styles={colourStyles} defaultValue={options} loadOptions={loadOptions} onChange={handleChange}/>
         </div>
     )
 }

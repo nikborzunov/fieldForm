@@ -1,12 +1,13 @@
 import React from "react"
 import FieldsForm from "./fieldsForm/fieldsForm";
 import s from './contentComponent.module.css'
+import {useEffect, useState} from 'react'
+
 
 const ContentComponent = props => {
 
     function clearPostsAlert() {
         props.postText({})
-        console.log(props.posts);
         alert('Cleared All The Posts!')
     }
 
@@ -15,6 +16,8 @@ const ContentComponent = props => {
         let username = {};
         let password = {};
         let textLabel = {};
+
+        let options = props.options;
 
         if (text.username) {
             username = text.username.valueOf()
@@ -49,17 +52,19 @@ const ContentComponent = props => {
             radioSelection3 = text.radioSelection3.valueOf()
         }
 
-        props.postText({
-            fields: {username, password, textLabel},
-            radio: {rememberMe, isToggle, radioSelection1, radioSelection2, radioSelection3},
-            options: props.options,
-        })
+        let result = {
+            username, password, textLabel,
+            rememberMe, isToggle, radioSelection1, radioSelection2, radioSelection3,
+            options
+        }
 
-        const posts = props.posts;
-        let jsonPosts = JSON.stringify(posts);
-
-        alert(jsonPosts)
-
+        if(Object.keys(text).length) {
+            props.postText({
+                username, password, textLabel,
+                rememberMe, isToggle, radioSelection1, radioSelection2, radioSelection3,
+                options
+            })
+        }
     }
 
 
