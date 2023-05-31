@@ -1,0 +1,43 @@
+.componentWrap{
+    background: rgba(122, 92, 250, 0.2);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    /*opacity: 0.2;*/
+
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+
+    /* identical to box height, or 150% */
+
+    color: #666666;
+}
+
+.componentContent{
+    width: 50vw;
+    height: 100%;
+    left: 420px;
+    top: 0px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* W Background */
+    background: #FFFFFF;
+}
+
+.componentContent_Item{
+    width: 60%;
+    height: 80%;
+}
+
+
+
+
+
+
